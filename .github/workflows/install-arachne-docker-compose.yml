@@ -61,7 +61,12 @@ jobs:
     - name: Verify Arachne is running
       # List running containers to ensure Arachne containers are up
       run: |  
-        docker ps  
+      
+        docker ps
+        docker-compose logs  # This will show the logs from all containers, which may help identify issues
+
+    - name: Wait for Arachne to start
+      run: sleep 30  # Wait for 30 seconds (adjust based on your needs)
 
     # Optional: Check if Arachne is accessible (assuming it exposes a web service)
     - name: Test Arachne installation
