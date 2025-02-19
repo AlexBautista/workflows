@@ -34,6 +34,7 @@ jobs:
     # Set up Docker Compose
     - name: Set up Docker Compose
       run: |
+      
         sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version  # Check Docker Compose version
@@ -41,6 +42,7 @@ jobs:
     # Set up the environment (if necessary)
     - name: Set up environment
       run: |
+      
         echo "Setting up environment variables..."
         # Add any environment variables here if needed (for example, for DB connections)
         # export MY_ENV_VAR=value
@@ -48,12 +50,14 @@ jobs:
 
     - name: List files in repository
       run: |
+      
         echo "Listing files in the repository:"
         ls -R
 
     # Start Arachne using Docker Compose
     - name: Start Arachne with Docker Compose
       run: |
+      
         cd install/docker
         docker-compose up -d  # Start the containers in detached mode
 
@@ -63,6 +67,7 @@ jobs:
       run: |  
       
         docker ps
+        cd /install/docker
         docker-compose logs  # This will show the logs from all containers, which may help identify issues
 
     - name: Wait for Arachne to start
@@ -71,5 +76,6 @@ jobs:
     # Optional: Check if Arachne is accessible (assuming it exposes a web service)
     - name: Test Arachne installation
       # Replace with the correct port if needed
-      run: |      
+      run: |    
+      
         curl -v http://localhost:8080 
