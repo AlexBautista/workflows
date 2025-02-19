@@ -21,9 +21,13 @@ jobs:
     - name: Set up Docker
       run: |
         sudo apt-get update
-        sudo apt-get install -y docker.io
-        sudo systemctl enable --now docker
-        docker --version  # Check Docker version
+        sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+        sudo usermod -aG docker $USER
+    
+    - name: Verify Docker installation
+      run: docker --version
 
     # Set up Docker Compose
     - name: Set up Docker Compose
