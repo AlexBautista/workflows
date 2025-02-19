@@ -59,12 +59,12 @@ jobs:
 
     # Optionally, verify the Arachne container is running
     - name: Verify Arachne is running
-      run: |
-      
-        docker ps  # List running containers to ensure Arachne containers are up
+      # List running containers to ensure Arachne containers are up
+      run: |  
+        docker ps  
 
     # Optional: Check if Arachne is accessible (assuming it exposes a web service)
     - name: Test Arachne installation
-      run: |
-      
-        curl -v http://localhost:8080  # Replace with the correct port if needed
+      # Replace with the correct port if needed
+      run: |      
+        curl -v http://localhost:8080 
