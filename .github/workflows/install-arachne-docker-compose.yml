@@ -13,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the Arachne repository
-    - name: Checkout code
+    
+    - name: Checkout Arachne repository
       uses: actions/checkout@v2
+      with:
+        repository: 'OHDSI/Arachne'
 
-    # Set up Docker
+    # Set up Docker (docker Already Installed on Ubuntu images
     #- name: Set up Docker
      # run: |
       #  sudo apt-get update
