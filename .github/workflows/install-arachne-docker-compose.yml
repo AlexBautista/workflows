@@ -77,3 +77,18 @@ jobs:
       run: |    
       
         curl -v http://localhost:8080 
+    
+    - name: Check Arachne heakthcheck URL with curl
+      run: |
+        
+          URL="http://localhost:8080"
+          RESPONSE=$(curl --write-out "%{http_code}" --silent --output /dev/null "$URL")
+          echo "Response code: $RESPONSE"
+      
+          # Check if the response code is 200 (OK)
+          if [ "$RESPONSE" -eq 200 ]; then
+            echo "Success: Arachne is up."
+          else
+            echo "Error: Arachne is down or unreachable."
+            exit 1
+          fi
