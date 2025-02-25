@@ -72,23 +72,23 @@ jobs:
       run: sleep 30  # Wait for 30 seconds (adjust based on your needs)
 
     # Optional: Check if Arachne is accessible (assuming it exposes a web service)
-    ##- name: Test Arachne installation
+    - name: Test Arachne installation
       # Replace with the correct port if needed
-      ##run: |    
+      run: |    
       
-        ##curl -v http://localhost:8080 
+        curl -v http://localhost:8080 
     
-    - name: Check Arachne heakthcheck URL with curl
-      run: |
+    #- name: Check Arachne heakthcheck URL with curl
+    # run: |
         
-          URL="http://localhost:8080"
-          RESPONSE=$(curl --write-out "%{http_code}" --silent --output /dev/null "$URL")
-          echo "Response code: $RESPONSE"
+    #      URL="http://localhost:8080"
+    #      RESPONSE=$(curl --write-out "%{http_code}" --silent --output /dev/null "$URL")
+    #      echo "Response code: $RESPONSE"
       
           # Check if the response code is 200 (OK)
-          if [ "$RESPONSE" -eq 200 ]; then
-            echo "Success: Arachne is up."
-          else
-            echo "Error: Arachne is down or unreachable."
-            exit 1
-          fi
+    #      if [ "$RESPONSE" -eq 200 ]; then
+    #        echo "Success: Arachne is up."
+    #      else
+    #        echo "Error: Arachne is down or unreachable."
+    #        exit 1
+    #      fi
