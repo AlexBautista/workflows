@@ -65,7 +65,7 @@ jobs:
     - name: Verify Arachne is running
       # List running containers to ensure Arachne containers are up
       run: |  
-      
+        sleep 30
         docker ps        
 
     - name: Wait for Arachne to start
@@ -76,7 +76,7 @@ jobs:
       # Replace with the correct port if needed
       run: |    
       
-        curl -v http://0.0.0.0:8080 
+        curl -v http://localhost:8080 
     
     #- name: Check Arachne heakthcheck URL with curl
     # run: |
