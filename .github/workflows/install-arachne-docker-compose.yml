@@ -68,10 +68,6 @@ jobs:
         sleep 30
         docker ps    
         
-    - name: Dump docker logs on failure
-      if: failure()
-      uses: jwalton/gh-docker-logs@v2
-
     - name: Wait for Arachne to start
       run: sleep 30  # Wait for 30 seconds (adjust based on your needs)
 
@@ -80,8 +76,12 @@ jobs:
       # Replace with the correct port if needed
       run: |    
       
-        curl -v http://localhost:8080 
-    
+        curl -v http://localhost:8080
+        
+    - name: Dump docker logs on failure
+      if: failure()
+      uses: jwalton/gh-docker-logs@v2  
+      
     #- name: Check Arachne heakthcheck URL with curl
     # run: |
         
