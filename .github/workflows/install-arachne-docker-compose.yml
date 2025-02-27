@@ -66,7 +66,11 @@ jobs:
       # List running containers to ensure Arachne containers are up
       run: |  
         sleep 30
-        docker ps        
+        docker ps    
+        
+    - name: Dump docker logs on failure
+      if: failure()
+      uses: jwalton/gh-docker-logs@v2
 
     - name: Wait for Arachne to start
       run: sleep 30  # Wait for 30 seconds (adjust based on your needs)
