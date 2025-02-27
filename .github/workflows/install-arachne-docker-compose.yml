@@ -76,7 +76,7 @@ jobs:
       # Replace with the correct port if needed
       run: |    
       
-        curl -v http://localhost:8888 
+        curl -v http://0.0.0.0:8080 
     
     #- name: Check Arachne heakthcheck URL with curl
     # run: |
