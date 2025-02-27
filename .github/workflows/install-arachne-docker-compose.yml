@@ -69,7 +69,7 @@ jobs:
         docker ps        
 
     - name: Wait for Arachne to start
-      run: sleep 60  # Wait for 30 seconds (adjust based on your needs)
+      run: sleep 30  # Wait for 30 seconds (adjust based on your needs)
 
     # Optional: Check if Arachne is accessible (assuming it exposes a web service)
     - name: Test Arachne installation
